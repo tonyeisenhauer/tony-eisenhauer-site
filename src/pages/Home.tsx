@@ -39,17 +39,16 @@ export function Home() {
       {/* Unified hero: ambient video, framed clip, name overlay fading into intro */}
       <section className="relative overflow-hidden bg-navy-950 text-cream">
         <video
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[50%_30%]"
+          className="pointer-events-none absolute inset-0 h-full w-full object-contain object-top"
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
-          poster="/images/tony-hero-portrait.jpg"
         >
-          <source src="/images/tony-hero-portrait.mp4" type="video/mp4" />
+          <source src="/images/tony-hero-v3.mp4" type="video/mp4" />
         </video>
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy-950/20 via-navy-950/55 to-navy-950" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-navy-950/40 to-navy-950" />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-navy-950/50 via-transparent to-navy-950/50" />
 
         <div className="container-page relative z-10 flex min-h-[88vh] flex-col items-center justify-end pt-40 text-center">
