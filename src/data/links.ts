@@ -16,8 +16,8 @@ export const LINKS = {
   paceYoutube: 'https://www.youtube.com/pacemorby',
   breezeLender:
     'https://app.breeze-financial.com/HMLOWebForm.php?bRc=81db5f67b47c15ea&aRc=ae94456e795f75fc&fOpt=c1cca7825dbc8710&op=aa4465703ef4b17e',
-  email: 'mailto:Tony.northeastproperty@gmail.com',
-  emailAddress: 'Tony.northeastproperty@gmail.com',
+  email: 'mailto:Eisenhauerproperties@gmail.com',
+  emailAddress: 'Eisenhauerproperties@gmail.com',
 } as const
 
 export const NAV_PRIMARY = [

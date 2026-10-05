@@ -147,13 +147,33 @@ export function SubmitDeal() {
     [form],
   )
 
-  const onSubmit = (e: FormEvent) => {
+  const [sending, setSending] = useState(false)
+  const [sendError, setSendError] = useState('')
+
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault()
     if (!validateStep()) return
-    // TODO: Wire to Cloudflare Forms, Formspree, or backend API.
-    // Local success state for now — no network POST.
-    console.info('Deal submission (local only):\n', summary)
-    setSubmitted(true)
+    setSending(true)
+    setSendError('')
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/Eisenhauerproperties@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          ...form,
+          _subject: `New deal submitted: ${form.propertyAddress || 'property'}`,
+          _replyto: form.email,
+          _template: 'table',
+          _captcha: 'false',
+        }),
+      })
+      if (!res.ok) throw new Error(String(res.status))
+      setSubmitted(true)
+    } catch {
+      setSendError(`Something went wrong sending your deal. Please email ${LINKS.emailAddress} directly.`)
+    } finally {
+      setSending(false)
+    }
   }
 
   if (submitted) {
@@ -162,7 +182,7 @@ export function SubmitDeal() {
         <PageHero
           label="Submit a Deal"
           title="Got it — thank you"
-          subtitle="Your details are ready. Backend wiring (Cloudflare Forms / Formspree) can be added next. Prefer to talk live?"
+          subtitle="Your deal is in. Tony reviews every submission personally and will reach out. Prefer to talk live?"
         >
           <a href={LINKS.calendly} target="_blank" rel="noopener noreferrer" className="btn-primary">
             Book a Call
@@ -174,18 +194,10 @@ export function SubmitDeal() {
         <section className="bg-cream py-16">
           <div className="container-page max-w-2xl">
             <div className="card-light">
-              <p className="text-sm font-semibold text-navy-900">Submission preview</p>
+              <p className="text-sm font-semibold text-navy-900">What you sent</p>
               <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-md bg-cream p-4 text-xs text-ink/70">
                 {summary}
               </pre>
-              <p className="mt-4 text-sm text-ink/60">
-                TODO: Connect this form to Cloudflare Pages Forms or Formspree. Until then, copy the
-                preview or email{' '}
-                <a className="text-gold-dark underline" href={LINKS.email}>
-                  {LINKS.emailAddress}
-                </a>
-                .
-              </p>
               <button
                 type="button"
                 className="btn-on-light mt-6"
@@ -236,6 +248,9 @@ export function SubmitDeal() {
           </ol>
 
           <form onSubmit={onSubmit} className="space-y-6 rounded-2xl border border-navy-700 bg-navy-900 p-6 sm:p-8">
+            {sendError && (
+              <p className="rounded-md border border-red-400/40 bg-red-500/10 px-4 py-3 text-sm text-red-200">{sendError}</p>
+            )}
             {step === 0 && (
               <div className="space-y-4">
                 <h2 className="font-display text-2xl font-semibold">Which buy box fits?</h2>
@@ -515,8 +530,8 @@ export function SubmitDeal() {
                   Continue
                 </button>
               ) : (
-                <button type="submit" className="btn-primary">
-                  Submit Deal
+                <button type="submit" className="btn-primary" disabled={sending}>
+                  {sending ? 'Sending…' : 'Submit Deal'}
                 </button>
               )}
             </div>
