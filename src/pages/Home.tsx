@@ -36,23 +36,38 @@ const accentRing = {
 export function Home() {
   return (
     <>
-      {/* Video showcase: full, unobstructed */}
-      <section className="relative bg-navy-950">
-        <div className="relative h-[56vw] max-h-[78vh] min-h-[280px] w-full overflow-hidden">
-          <video
-            className="absolute inset-0 h-full w-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            poster="/images/tony-summit-duo.png"
-          >
-            <source src="/images/tony-hero-v3.mp4" type="video/mp4" />
-          </video>
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-navy-950 to-transparent" />
+      {/* Video showcase: blurred ambient fill + framed sharp portrait video */}
+      <section className="relative overflow-hidden bg-navy-950">
+        <video
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 h-full w-full scale-110 object-cover opacity-50 blur-2xl"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/images/tony-hero-portrait.jpg"
+        >
+          <source src="/images/tony-hero-portrait.mp4" type="video/mp4" />
+        </video>
+        <div className="pointer-events-none absolute inset-0 bg-navy-950/45" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-navy-950 to-transparent" />
+        <div className="relative z-10 flex justify-center px-4 py-10 sm:py-14">
+          <div className="relative">
+            <div className="absolute -inset-2 rounded-[1.75rem] border border-gold/40 shadow-[0_0_80px_-15px_rgba(196,163,90,0.55)]" />
+            <video
+              className="relative h-[68vh] max-h-[720px] min-h-[420px] w-auto rounded-3xl object-cover shadow-2xl"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              poster="/images/tony-hero-portrait.jpg"
+            >
+              <source src="/images/tony-hero-portrait.mp4" type="video/mp4" />
+            </video>
+          </div>
         </div>
-        <div className="h-1 bg-gradient-to-r from-gold via-gold-light to-accent-copper" />
+        <div className="relative h-1 bg-gradient-to-r from-gold via-gold-light to-accent-copper" />
       </section>
 
       {/* Intro: name, photo, CTAs */}
