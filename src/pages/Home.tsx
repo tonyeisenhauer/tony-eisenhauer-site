@@ -39,36 +39,21 @@ export function Home() {
       {/* Unified hero: ambient video, framed clip, name overlay fading into intro */}
       <section className="relative overflow-hidden bg-navy-950 text-cream">
         <video
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 h-full w-full scale-110 object-cover opacity-40 blur-3xl"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[50%_30%]"
           autoPlay
           muted
           loop
           playsInline
+          preload="auto"
           poster="/images/tony-hero-portrait.jpg"
         >
           <source src="/images/tony-hero-portrait.mp4" type="video/mp4" />
         </video>
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy-950/30 via-navy-950/60 to-navy-950" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy-950/20 via-navy-950/55 to-navy-950" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-navy-950/50 via-transparent to-navy-950/50" />
 
-        <div className="container-page relative z-10 flex flex-col items-center pt-10 text-center sm:pt-14">
+        <div className="container-page relative z-10 flex min-h-[88vh] flex-col items-center justify-end pt-40 text-center">
           <div className="relative">
-            <div className="absolute -inset-2 rounded-[1.75rem] shadow-[0_0_90px_-20px_rgba(196,163,90,0.5)]" />
-            <video
-              className="relative h-[62vh] max-h-[660px] min-h-[400px] w-auto rounded-3xl object-cover shadow-2xl"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="auto"
-              poster="/images/tony-hero-portrait.jpg"
-            >
-              <source src="/images/tony-hero-portrait.mp4" type="video/mp4" />
-            </video>
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 rounded-b-3xl bg-gradient-to-t from-navy-950 via-navy-950/70 to-transparent" />
-          </div>
-
-          <div className="relative -mt-24 sm:-mt-28">
             <p className="section-label mb-3">Investor · Entrepreneur · Community Leader</p>
             <h1 className="font-display text-5xl font-semibold leading-none tracking-tight drop-shadow-[0_6px_24px_rgba(0,0,0,0.85)] sm:text-6xl lg:text-7xl">
               Tony Eisenhauer
