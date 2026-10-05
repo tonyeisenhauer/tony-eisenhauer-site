@@ -36,23 +36,29 @@ const accentRing = {
 export function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-navy-950 text-cream">
-        <div className="absolute inset-0">
+      {/* Video showcase: full, unobstructed */}
+      <section className="relative bg-navy-950">
+        <div className="relative h-[56vw] max-h-[78vh] min-h-[280px] w-full overflow-hidden">
           <video
-            className="h-full w-full object-cover opacity-40"
+            className="absolute inset-0 h-full w-full object-cover"
             autoPlay
             muted
             loop
             playsInline
-            poster="/images/tony-headshot-new.jpeg"
+            preload="auto"
+            poster="/images/tony-summit-duo.png"
           >
             <source src="/images/tony-hero-v3.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/92 to-navy-950/55" />
-          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-navy-950 to-transparent" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-navy-950 to-transparent" />
         </div>
-        <div className="container-page relative z-10 grid items-center gap-10 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:py-28">
+        <div className="h-1 bg-gradient-to-r from-gold via-gold-light to-accent-copper" />
+      </section>
+
+      {/* Intro: name, photo, CTAs */}
+      <section className="relative overflow-hidden bg-navy-950 text-cream">
+        <div className="pointer-events-none absolute -right-32 top-10 h-80 w-80 rounded-full bg-gold/10 blur-3xl" />
+        <div className="container-page relative z-10 grid items-center gap-12 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
           <div>
             <p className="section-label mb-4">Investor · Entrepreneur · Community Leader</p>
             <h1 className="font-display text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
@@ -76,9 +82,8 @@ export function Home() {
               </a>
             </div>
           </div>
-          <div className="relative mx-auto w-full max-w-md">
+          <div className="relative mx-auto w-full max-w-sm">
             <div className="absolute -inset-3 rounded-2xl border border-gold/30 shadow-[0_0_60px_-20px_rgba(196,163,90,0.45)]" />
-            <div className="absolute -bottom-4 -right-4 h-24 w-24 rounded-full bg-gold/20 blur-2xl" />
             <img
               src="/images/tony-headshot-new.jpeg"
               alt="Tony Eisenhauer"
