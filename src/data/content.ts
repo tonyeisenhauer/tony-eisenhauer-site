@@ -86,6 +86,9 @@ export const BUY_BOXES = [
     shortStrategy: 'Value-Add SFH — ~60–70% ARV minus rehab',
     shortLocation:
       'Chattanooga TN · Knoxville TN · Worcester MA · Windham CT · Norfolk MA · Rockingham NH',
+    image: '/images/tony-buybox-bg.webp',
+    accent: 'gold' as const,
+    accentLabel: 'Gold',
     criteria: [
       {
         label: 'Deal Criteria',
@@ -111,6 +114,9 @@ export const BUY_BOXES = [
     shortStrategy: 'SFH — cash flow as-is · ≥20% gross revenue',
     shortLocation:
       'Carroll County NH · Pigeon Forge TN · Asheville NC · Gulf Shores AL · Panama City Beach FL · Indian Rocks / Okaloosa FL',
+    image: '/images/b99c3818.webp',
+    accent: 'copper' as const,
+    accentLabel: 'Copper',
     criteria: [
       {
         label: 'Location Focus',
@@ -132,6 +138,9 @@ export const BUY_BOXES = [
     subtitle: 'Primary + smaller New England value-add',
     shortStrategy: '20–200 unit B/C · also 3+ unit value-add in Windham / Worcester',
     shortLocation: 'East TN · Maine · Upstate NY · NH · Windham CT · Worcester MA',
+    image: '/images/77382875.avif',
+    accent: 'steel' as const,
+    accentLabel: 'Steel',
     criteria: [
       {
         label: 'Primary Targets',
@@ -202,6 +211,15 @@ export const SUBMIT_BUY_BOX_OPTIONS = [
     strategy: '1st/2nd position, equity, or flexible structures',
     location: 'Nationwide',
   },
+] as const
+
+export const DEAL_COLLAGE = [
+  { src: '/images/tony-buybox-bg.webp', alt: 'Value-add opportunity' },
+  { src: '/images/b99c3818.webp', alt: 'Mountain short-term rental' },
+  { src: '/images/3AmI6Gf.webp', alt: 'Renovated kitchen' },
+  { src: '/images/8f53a055.avif', alt: 'Luxury outdoor living' },
+  { src: '/images/5490a2a5.webp', alt: 'White Mountain views' },
+  { src: '/images/10fd28e1.webp', alt: 'Evening fire pit' },
 ] as const
 
 export const COMMUNITY_PHOTOS = [

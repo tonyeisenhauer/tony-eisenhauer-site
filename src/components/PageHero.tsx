@@ -15,9 +15,10 @@ export function PageHero({ label, title, subtitle, image, children }: Props) {
           <img
             src={image}
             alt=""
-            className="absolute inset-0 h-full w-full object-cover opacity-40"
+            className="absolute inset-0 h-full w-full object-cover opacity-45"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-950/70 via-navy-950/85 to-navy-950" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-950/65 via-navy-950/80 to-navy-950" />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-950/40 via-transparent to-gold/5" />
         </>
       )}
       <div className="container-page relative z-10 py-20 sm:py-28">
@@ -32,6 +33,7 @@ export function PageHero({ label, title, subtitle, image, children }: Props) {
           {children && <div className="mt-8 flex flex-wrap justify-center gap-3">{children}</div>}
         </div>
       </div>
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
     </section>
   )
 }

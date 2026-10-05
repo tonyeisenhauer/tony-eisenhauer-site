@@ -16,6 +16,17 @@
   --color-gold-dark: #a6883f;
   --color-slate-text: #8b9bb4;
   --color-ink: #1a2332;
+
+  /* Buy-box strategy accents */
+  --color-accent-gold: #c4a35a;
+  --color-accent-gold-soft: #c4a35a26;
+  --color-accent-gold-glow: #c4a35a40;
+  --color-accent-copper: #c47a4a;
+  --color-accent-copper-soft: #c47a4a26;
+  --color-accent-copper-glow: #c47a4a40;
+  --color-accent-steel: #6b8cae;
+  --color-accent-steel-soft: #6b8cae26;
+  --color-accent-steel-glow: #6b8cae40;
 }
 
 @layer base {
@@ -38,16 +49,16 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-md bg-gold px-6 py-3 text-sm font-semibold tracking-wide text-navy-950 transition hover:bg-gold-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold;
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-gold px-6 py-3 text-sm font-semibold tracking-wide text-navy-950 shadow-[0_8px_24px_-8px_rgba(196,163,90,0.55)] transition hover:bg-gold-light hover:shadow-[0_12px_28px_-8px_rgba(196,163,90,0.65)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold;
   }
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-md border border-gold/70 bg-transparent px-6 py-3 text-sm font-semibold tracking-wide text-gold transition hover:bg-gold/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold;
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-gold/70 bg-transparent px-6 py-3 text-sm font-semibold tracking-wide text-gold transition hover:border-gold hover:bg-gold/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold;
   }
   .btn-dark {
     @apply inline-flex items-center justify-center gap-2 rounded-md border border-navy-700 bg-navy-800 px-6 py-3 text-sm font-semibold tracking-wide text-cream transition hover:border-gold/40 hover:text-gold;
   }
   .btn-on-light {
-    @apply inline-flex items-center justify-center gap-2 rounded-md bg-navy-900 px-6 py-3 text-sm font-semibold tracking-wide text-cream transition hover:bg-navy-800;
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-navy-900 px-6 py-3 text-sm font-semibold tracking-wide text-cream shadow-[0_10px_28px_-12px_rgba(7,13,26,0.55)] transition hover:bg-navy-800;
   }
   .btn-outline-dark {
     @apply inline-flex items-center justify-center gap-2 rounded-md border border-navy-900/20 bg-transparent px-6 py-3 text-sm font-semibold tracking-wide text-navy-900 transition hover:border-navy-900/50 hover:bg-navy-900/5;
@@ -59,9 +70,34 @@
     @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8;
   }
   .card-dark {
-    @apply rounded-xl border border-navy-700 bg-navy-800/80 p-6 transition hover:border-gold/35;
+    @apply rounded-xl border border-navy-700 bg-navy-800/80 p-6 shadow-[0_12px_40px_-24px_rgba(0,0,0,0.6)] transition hover:border-gold/35 hover:shadow-[0_16px_48px_-20px_rgba(196,163,90,0.25)];
   }
   .card-light {
-    @apply rounded-xl border border-cream-dark bg-white p-6 shadow-sm transition hover:border-gold/40 hover:shadow-md;
+    @apply rounded-xl border border-cream-dark bg-white p-6 shadow-[0_10px_30px_-18px_rgba(26,35,50,0.25)] transition hover:border-gold/40 hover:shadow-[0_16px_40px_-16px_rgba(26,35,50,0.3)];
+  }
+
+  /* Buy-box accent helpers */
+  .accent-text-gold { color: var(--color-accent-gold); }
+  .accent-text-copper { color: var(--color-accent-copper); }
+  .accent-text-steel { color: var(--color-accent-steel); }
+  .accent-bg-gold { background-color: var(--color-accent-gold); }
+  .accent-bg-copper { background-color: var(--color-accent-copper); }
+  .accent-bg-steel { background-color: var(--color-accent-steel); }
+  .accent-border-gold { border-color: var(--color-accent-gold); }
+  .accent-border-copper { border-color: var(--color-accent-copper); }
+  .accent-border-steel { border-color: var(--color-accent-steel); }
+  .accent-soft-gold { background-color: var(--color-accent-gold-soft); }
+  .accent-soft-copper { background-color: var(--color-accent-copper-soft); }
+  .accent-soft-steel { background-color: var(--color-accent-steel-soft); }
+  .accent-ring-gold { box-shadow: 0 0 0 1px var(--color-accent-gold-glow), 0 20px 50px -24px var(--color-accent-gold-glow); }
+  .accent-ring-copper { box-shadow: 0 0 0 1px var(--color-accent-copper-glow), 0 20px 50px -24px var(--color-accent-copper-glow); }
+  .accent-ring-steel { box-shadow: 0 0 0 1px var(--color-accent-steel-glow), 0 20px 50px -24px var(--color-accent-steel-glow); }
+
+  .photo-frame {
+    @apply relative overflow-hidden rounded-2xl;
+  }
+  .photo-frame::after {
+    content: "";
+    @apply pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10;
   }
 }
