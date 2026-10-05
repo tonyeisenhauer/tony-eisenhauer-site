@@ -36,11 +36,11 @@ const accentRing = {
 export function Home() {
   return (
     <>
-      {/* Video showcase: blurred ambient fill + framed sharp portrait video */}
-      <section className="relative overflow-hidden bg-navy-950">
+      {/* Unified hero: ambient video, framed clip, name overlay fading into intro */}
+      <section className="relative overflow-hidden bg-navy-950 text-cream">
         <video
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 h-full w-full scale-110 object-cover opacity-50 blur-2xl"
+          className="pointer-events-none absolute inset-0 h-full w-full scale-110 object-cover opacity-40 blur-3xl"
           autoPlay
           muted
           loop
@@ -49,13 +49,13 @@ export function Home() {
         >
           <source src="/images/tony-hero-portrait.mp4" type="video/mp4" />
         </video>
-        <div className="pointer-events-none absolute inset-0 bg-navy-950/45" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-navy-950 to-transparent" />
-        <div className="relative z-10 flex justify-center px-4 py-10 sm:py-14">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy-950/30 via-navy-950/60 to-navy-950" />
+
+        <div className="container-page relative z-10 flex flex-col items-center pt-10 text-center sm:pt-14">
           <div className="relative">
-            <div className="absolute -inset-2 rounded-[1.75rem] border border-gold/40 shadow-[0_0_80px_-15px_rgba(196,163,90,0.55)]" />
+            <div className="absolute -inset-2 rounded-[1.75rem] shadow-[0_0_90px_-20px_rgba(196,163,90,0.5)]" />
             <video
-              className="relative h-[68vh] max-h-[720px] min-h-[420px] w-auto rounded-3xl object-cover shadow-2xl"
+              className="relative h-[62vh] max-h-[660px] min-h-[400px] w-auto rounded-3xl object-cover shadow-2xl"
               autoPlay
               muted
               loop
@@ -65,47 +65,42 @@ export function Home() {
             >
               <source src="/images/tony-hero-portrait.mp4" type="video/mp4" />
             </video>
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 rounded-b-3xl bg-gradient-to-t from-navy-950 via-navy-950/70 to-transparent" />
           </div>
-        </div>
-        <div className="relative h-1 bg-gradient-to-r from-gold via-gold-light to-accent-copper" />
-      </section>
 
-      {/* Intro: name, photo, CTAs */}
-      <section className="relative overflow-hidden bg-navy-950 text-cream">
-        <div className="pointer-events-none absolute -right-32 top-10 h-80 w-80 rounded-full bg-gold/10 blur-3xl" />
-        <div className="container-page relative z-10 grid items-center gap-12 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
-          <div>
-            <p className="section-label mb-4">Investor · Entrepreneur · Community Leader</p>
-            <h1 className="font-display text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
+          <div className="relative -mt-24 sm:-mt-28">
+            <p className="section-label mb-3">Investor · Entrepreneur · Community Leader</p>
+            <h1 className="font-display text-5xl font-semibold leading-none tracking-tight drop-shadow-[0_6px_24px_rgba(0,0,0,0.85)] sm:text-6xl lg:text-7xl">
               Tony Eisenhauer
             </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-cream/85 sm:text-xl">
-              Creative finance investor who closes with integrity — subject-to, seller finance, and
-              value-add deals across New England and beyond.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/submit-deal" className="btn-primary">
-                Submit a Deal
-              </Link>
-              <a
-                href={LINKS.calendly}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary"
-              >
-                Book a Call
-              </a>
-            </div>
           </div>
-          <div className="relative mx-auto w-full max-w-sm">
-            <div className="absolute -inset-3 rounded-2xl border border-gold/30 shadow-[0_0_60px_-20px_rgba(196,163,90,0.45)]" />
+
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-cream/80 sm:text-xl">
+            Creative finance investor who closes with integrity — subject-to, seller finance, and
+            value-add deals across New England and beyond.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Link to="/submit-deal" className="btn-primary">
+              Submit a Deal
+            </Link>
+            <a href={LINKS.calendly} target="_blank" rel="noopener noreferrer" className="btn-secondary">
+              Book a Call
+            </a>
+          </div>
+
+          <div className="mx-auto mt-14 flex w-full max-w-xl items-center gap-5 pb-16 text-left sm:pb-20">
             <img
               src="/images/tony-headshot-new.jpeg"
               alt="Tony Eisenhauer"
-              className="relative w-full rounded-2xl object-cover shadow-2xl"
+              className="h-28 w-28 shrink-0 rounded-full border-2 border-gold/60 object-cover shadow-xl sm:h-36 sm:w-36"
             />
+            <div className="h-px flex-1 bg-gradient-to-r from-gold/60 to-transparent" />
+            <p className="max-w-xs text-sm leading-relaxed text-cream/70">
+              Husband, dad, and builder. Every deal is done with transparency, no games, no surprises.
+            </p>
           </div>
         </div>
+        <div className="relative h-1 bg-gradient-to-r from-gold via-gold-light to-accent-copper" />
       </section>
 
       {/* Proof strip — gold band accent */}
