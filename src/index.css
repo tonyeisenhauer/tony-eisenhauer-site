@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+
+  --color-navy-950: #070d1a;
+  --color-navy-900: #0c1526;
+  --color-navy-800: #132038;
+  --color-navy-700: #1c2d4a;
+  --color-navy-600: #2a4066;
+  --color-cream: #f7f4ef;
+  --color-cream-dark: #ebe6dc;
+  --color-gold: #c4a35a;
+  --color-gold-light: #d4b96e;
+  --color-gold-dark: #a6883f;
+  --color-slate-text: #8b9bb4;
+  --color-ink: #1a2332;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream text-ink font-body antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+  a {
+    @apply transition-colors duration-200;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-gold;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-gold px-6 py-3 text-sm font-semibold tracking-wide text-navy-950 transition hover:bg-gold-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-gold/70 bg-transparent px-6 py-3 text-sm font-semibold tracking-wide text-gold transition hover:bg-gold/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold;
+  }
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-navy-700 bg-navy-800 px-6 py-3 text-sm font-semibold tracking-wide text-cream transition hover:border-gold/40 hover:text-gold;
+  }
+  .btn-on-light {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-navy-900 px-6 py-3 text-sm font-semibold tracking-wide text-cream transition hover:bg-navy-800;
+  }
+  .btn-outline-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-navy-900/20 bg-transparent px-6 py-3 text-sm font-semibold tracking-wide text-navy-900 transition hover:border-navy-900/50 hover:bg-navy-900/5;
+  }
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-gold;
+  }
+  .container-page {
+    @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+  .card-dark {
+    @apply rounded-xl border border-navy-700 bg-navy-800/80 p-6 transition hover:border-gold/35;
+  }
+  .card-light {
+    @apply rounded-xl border border-cream-dark bg-white p-6 shadow-sm transition hover:border-gold/40 hover:shadow-md;
+  }
+}
